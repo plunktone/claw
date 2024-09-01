@@ -7,7 +7,7 @@ public class SpawnPrefabs : MonoBehaviour
     public GameObject spawnPrefab;
     public Transform spawnTransform;
     public int spawnCount;
-    private float spawnDelay = 1f;
+    private float spawnDelay = 0.15f;
 
 
     private void Start() {
@@ -22,9 +22,9 @@ public class SpawnPrefabs : MonoBehaviour
             GameObject spawnInst  = Instantiate(spawnPrefab, spawnTransform);
             Vector2 randomDirection = Random.insideUnitCircle * 5f;
             spawnInst.GetComponent<Rigidbody2D>().velocity = randomDirection;
-
+            yield return new WaitForSeconds(spawnDelay);
         }
 
-        yield return new WaitForSeconds(spawnDelay);
+
     }
 }
