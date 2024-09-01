@@ -26,10 +26,7 @@ public class SpawnPrefabs : MonoBehaviour
             Debug.Log(randomNum);
             yield return new WaitForSeconds(spawnDelay);
         }
-
-
     }
-
 
         private GameObject GetSpawnRandomNum(int randomNum)
         {
