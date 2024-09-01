@@ -22,6 +22,10 @@ public class SpawnPrefabs : MonoBehaviour
             GameObject spawnInst  = Instantiate(spawnPrefab, spawnTransform);
             Vector2 randomDirection = Random.insideUnitCircle * 5f;
             spawnInst.GetComponent<Rigidbody2D>().velocity = randomDirection;
+
+            float randomRotation = Random.Range(0f,360f);
+            spawnInst.transform.rotation = Quaternion.Euler(0f,0f,randomRotation);
+
             yield return new WaitForSeconds(spawnDelay);
         }
 
